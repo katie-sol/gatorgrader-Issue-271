@@ -24,11 +24,8 @@ def get_actual_output(output):
     # break up the output by newlines, discarding newlines
     for line in output.splitlines(keepends=False):
         # decode the line
-        try:
-            current_line_decoded = line.decode()
-        # line cannot decode, return the line itself
-        except (ValueError, AttributeError):
-            current_line_decoded = line
+        current_line_decoded = line.decode("utf-8" , errors="replace") 
+        #using UTF-8 to decode the line, replacing any errors with a replace 
         # add this line to the list of actual lines
         actual_output.append(current_line_decoded)
     return actual_output
