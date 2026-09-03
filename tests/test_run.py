@@ -64,7 +64,7 @@ def test_run_invalid_output():
     """Check that invalid unicode bytestrings are handled correctly."""
     invalid_byte_sequence = b"\x80\x81"
     output = run.get_actual_output(invalid_byte_sequence)
-    assert invalid_byte_sequence in output
+    assert "\ufffd\ufffd" in output
 
 
 def test_run_invalid_output_str():
