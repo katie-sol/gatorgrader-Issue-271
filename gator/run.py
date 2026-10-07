@@ -21,15 +21,15 @@ def specified_command_get_output(command):
 def get_actual_output(output):
     """Return the list of actual lines from the command's output."""
     actual_output = []
-    #If output is none return empty list
+    # If output is none return empty list
     if output is None:
         return []
     # break up the output by newlines, discarding newlines
     for line in output.splitlines(keepends=False):
         # decode the line if it is bytes otherwise leave it as a string
         if isinstance(output, bytes):
-            current_line_decoded = line.decode("utf-8" , errors="replace")
-            #using UTF-8 to decode the line, replacing any errors with a replace
+            current_line_decoded = line.decode("utf-8", errors="replace")
+            # using UTF-8 to decode the line, replacing any errors with a replace
         else:
             current_line_decoded = line
         # add this line to the list of actual lines
